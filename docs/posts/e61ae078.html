@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.0.1',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="入门基础核心组件和原生组件原生组件使用React Native，您可以使用React组件通过JavaScript调用Android 和IOS视图。 在运行时，React Native为这些组件创建相应的Android和iOS视图。 由于React Native组件具有与Android和iOS相同的视图支持，因此React Native应用的外观，感觉和性能与其他任何应用一样。 我们将这些平台支持的">
+<meta name="keywords" content="ReactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RN基础入门">
+<meta property="og:url" content="http://yoursite.com/posts/e61ae078.html">
+<meta property="og:site_name" content="houfee&#39;s Blog">
+<meta property="og:description" content="入门基础核心组件和原生组件原生组件使用React Native，您可以使用React组件通过JavaScript调用Android 和IOS视图。 在运行时，React Native为这些组件创建相应的Android和iOS视图。 由于React Native组件具有与Android和iOS相同的视图支持，因此React Native应用的外观，感觉和性能与其他任何应用一样。 我们将这些平台支持的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200327083821128.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200327084507790.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200327085101363.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/ScrollView.gif">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/FlatList.gif">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/SectionList.gif">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/movielist.gif">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200326151335084.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200326151248022.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200326154915534.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200326155234896.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200326155524158.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200326160914205.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200331154557560.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200331154722643.png">
+<meta property="og:image" content="http://yoursite.com/view/posts/e61ae078/image-20200331155044160.png">
+<meta property="og:updated_time" content="2020-06-18T07:09:21.404Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RN基础入门">
+<meta name="twitter:description" content="入门基础核心组件和原生组件原生组件使用React Native，您可以使用React组件通过JavaScript调用Android 和IOS视图。 在运行时，React Native为这些组件创建相应的Android和iOS视图。 由于React Native组件具有与Android和iOS相同的视图支持，因此React Native应用的外观，感觉和性能与其他任何应用一样。 我们将这些平台支持的">
+<meta name="twitter:image" content="http://yoursite.com/view/posts/e61ae078/image-20200327083821128.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="houfee's Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/posts/e61ae078">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>RN基础入门 | houfee's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">houfee's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">写我所想</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="https://github.com/houfee" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-github"></i> <br>GitHub</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-user">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/hireme" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>简历</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories" rel="section"><i class="menu-item-icon fa fa-fw fa-th-list"></i> <br>分类<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">11</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-note">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="https://www.cnblogs.com/houfee/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-sticky-note-o"></i> <br>笔记</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/posts/e61ae078.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="houfee">
+      <meta itemprop="description" content="life and learn">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="houfee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RN基础入门
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-31 16:14:14" itemprop="dateCreated datePublished" datetime="2020-03-31T16:14:14+08:00">2020-03-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-06-18 15:09:21" itemprop="dateModified" datetime="2020-06-18T15:09:21+08:00">2020-06-18</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ReactNative/" itemprop="url" rel="index"><span itemprop="name">ReactNative</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/posts/e61ae078.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/posts/e61ae078.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="入门基础"><a href="#入门基础" class="headerlink" title="入门基础"></a>入门基础</h1><h2 id="核心组件和原生组件"><a href="#核心组件和原生组件" class="headerlink" title="核心组件和原生组件"></a>核心组件和原生组件</h2><h3 id="原生组件"><a href="#原生组件" class="headerlink" title="原生组件"></a>原生组件</h3><p>使用React Native，您可以使用React组件通过JavaScript调用Android 和IOS视图。 在运行时，React Native为这些组件创建相应的Android和iOS视图。 由于React Native组件具有与Android和iOS相同的视图支持，因此React Native应用的外观，感觉和性能与其他任何应用一样。 我们将这些平台支持的组件称为“本机组件”。</p>
+<p>通过React Native，您可以为Android和iOS构建自己的Native Components，以满足您应用的独特需求。 我们还有一个由社区贡献的组成部分的繁荣生态系统。 查看本机目录以查找社区正在创建的内容。</p>
+<p>React Native还包括一组基本的，随时可用的Native组件，您可以使用它们立即开始构建您的应用程序。 这些是React Native的核心组件。</p>
+<h3 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a>核心组件</h3><p>React Native具有许多核心组件，从表单控件到活动指示器，应有尽有。 您可以在API部分找到所有记录的文档。 您将主要使用以下核心组件：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">RN UI 组件</th>
+<th style="text-align:left">ANDROID VIEW</th>
+<th style="text-align:left">IOS VIEW</th>
+<th style="text-align:left">WEB ANALOG</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>&lt;View&gt;</code></td>
+<td style="text-align:left"><code>&lt;ViewGroup&gt;</code></td>
+<td style="text-align:left"><code>&lt;UIView&gt;</code></td>
+<td style="text-align:left">A non-scrollling <code>&lt;div&gt;</code></td>
+<td style="text-align:left">支持flexbox布局、样式、一些触摸处理和可访问性控制的容器</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;Text&gt;</code></td>
+<td style="text-align:left"><code>&lt;TextView&gt;</code></td>
+<td style="text-align:left"><code>&lt;UITextView&gt;</code></td>
+<td style="text-align:left"><code>&lt;p&gt;</code></td>
+<td style="text-align:left">显示，设置样式和嵌套文本字符串，甚至处理触摸事件</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;Image&gt;</code></td>
+<td style="text-align:left"><code>&lt;ImageView&gt;</code></td>
+<td style="text-align:left"><code>&lt;UIImageView&gt;</code></td>
+<td style="text-align:left"><code>&lt;img&gt;</code></td>
+<td style="text-align:left">显示不同类型的图像</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;ScrollView&gt;</code></td>
+<td style="text-align:left"><code>&lt;ScrollView&gt;</code></td>
+<td style="text-align:left"><code>&lt;UIScrollView&gt;</code></td>
+<td style="text-align:left"><code>&lt;div&gt;</code></td>
+<td style="text-align:left">通用滚动容器，可以包含多个组件和视图</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>&lt;TextInput&gt;</code></td>
+<td style="text-align:left"><code>&lt;EditText&gt;</code></td>
+<td style="text-align:left"><code>&lt;UITextField&gt;</code></td>
+<td style="text-align:left"><code>&lt;input type=&quot;text&quot;&gt;</code></td>
+<td style="text-align:left">允许用户输入文字</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; View, Text, Image, ScrollView, TextInput, FlatList &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;ScrollView&gt;</span><br><span class="line">      &lt;Text&gt;Some text&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">      &lt;View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Text&gt;Some moqqqre text&lt;/</span>Text&gt;</span><br><span class="line">        &lt;Image source=&#123;&#123;<span class="attr">uri</span>: <span class="string">'bd'</span>&#125;&#125; style=&#123;&#123;<span class="attr">width</span>: <span class="number">200</span>, <span class="attr">height</span>: <span class="number">200</span>&#125;&#125;&gt;&lt;/Image&gt;</span><br><span class="line">        &lt;Image source=&#123;<span class="built_in">require</span>(<span class="string">'./1.png'</span>)&#125; style=&#123;&#123;<span class="attr">width</span>: <span class="number">200</span>, <span class="attr">height</span>: <span class="number">200</span>, <span class="attr">borderColor</span>: <span class="string">'gray'</span>,  <span class="attr">borderWidth</span>: <span class="number">1</span>&#125;&#125;/&gt;</span><br><span class="line">        &lt;Image source=&#123;&#123;<span class="attr">uri</span>: <span class="string">"https://facebook.github.io/react-native/docs/assets/p_cat2.png"</span>&#125;&#125; style=&#123;&#123;<span class="attr">width</span>: <span class="number">200</span>, <span class="attr">height</span>: <span class="number">200</span>&#125;&#125;/&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">      &lt;TextInput</span></span><br><span class="line"><span class="regexp">        style=&#123;&#123;</span></span><br><span class="line"><span class="regexp">          height: 40,</span></span><br><span class="line"><span class="regexp">          borderColor: 'gray',</span></span><br><span class="line"><span class="regexp">          borderWidth: 1</span></span><br><span class="line"><span class="regexp">        &#125;&#125;</span></span><br><span class="line"><span class="regexp">        defaultValue="You can type in me"</span></span><br><span class="line"><span class="regexp">      /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/ScrollView&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
+<h2 id="React基础"><a href="#React基础" class="headerlink" title="React基础"></a>React基础</h2><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><h4 id="Function-Component"><a href="#Function-Component" class="headerlink" title="Function Component"></a>Function Component</h4> <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Text&gt;Hello, I am your cat!&lt;/Text&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Class-Component"><a href="#Class-Component" class="headerlink" title="Class Component"></a>Class Component</h4><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Text&gt;Hello, I am your cat!&lt;/Text&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两种不同的组件之间的<strong>本质区别就是</strong>：有无state属性 和 生命周期函数！</p>
+<h3 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">firstName, secondName, thirdName</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> firstName + <span class="string">" "</span> + secondName + <span class="string">" "</span> + thirdName;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Text&gt;</span><br><span class="line">      Hello, I am &#123;getFullName(<span class="string">"Rum"</span>, <span class="string">"Tum"</span>, <span class="string">"Tugger"</span>)&#125;!</span><br><span class="line">    &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="自定义组件"><a href="#自定义组件" class="headerlink" title="自定义组件"></a>自定义组件</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Button, Text, View &#125; <span class="keyword">from</span> <span class="string">"react-native"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123; <span class="attr">isHungry</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">  render(props) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;Text&gt;</span><br><span class="line">          I am &#123;<span class="keyword">this</span>.props.name&#125;, and I am</span><br><span class="line">          &#123;<span class="keyword">this</span>.state.isHungry ? <span class="string">" hungry"</span> : <span class="string">" full"</span>&#125;!</span><br><span class="line">        &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Button</span></span><br><span class="line"><span class="regexp">          onPress=&#123;() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            this.setState(&#123; isHungry: false &#125;);</span></span><br><span class="line"><span class="regexp">          &#125;&#125;</span></span><br><span class="line"><span class="regexp">          disabled=&#123;!this.state.isHungry&#125;</span></span><br><span class="line"><span class="regexp">          title=&#123;</span></span><br><span class="line"><span class="regexp">            this.state.isHungry ? "Pour me some milk, please!" : "Thank you!"</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">        /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default class Cafe extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Cat name="Munkustrap" /</span>&gt;</span><br><span class="line">        &lt;Cat name=<span class="string">"Spot"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p><strong>类似于vue的父子组件传值</strong></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text, View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;View&gt;</span><br><span class="line">      &lt;Text&gt;Hello, I am &#123;props.name&#125;!&lt;/Text&gt;</span><br><span class="line">    &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default function Cafe() &#123;</span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;View&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Cat name="Maru" /</span>&gt;</span><br><span class="line">      &lt;Cat name=<span class="string">"Jellylorum"</span> /&gt;</span><br><span class="line">      &lt;Cat name=<span class="string">"Spot"</span> /&gt;</span><br><span class="line">    &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p><strong>类似于vue data对象</strong></p>
+<p><code>useState</code>：</p>
+<p><code>[&lt;getter&gt;, &lt;setter&gt;] = useState(&lt;initialValue&gt;)</code>。</p>
+<p>在函数组件中调用<code>useState</code>，就会创建一个单独的状态。</p>
+<p>在类组件中，<code>state</code> 总是一个对象，可以在该对象上添加保存属性。</p>
+<p>每次调用<code>useState</code>都会创建一个<code>state</code>块，其中包含一个值。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Button, Text, View &#125; <span class="keyword">from</span> <span class="string">"react-native"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">props</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 创建一个状态，并将其初始化为“true”</span></span><br><span class="line">  <span class="keyword">const</span> [isHungry, setIsHungry] = useState(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;View&gt;</span><br><span class="line">      &lt;Text&gt;</span><br><span class="line">        I am &#123;props.name&#125;, and I am &#123;isHungry ? <span class="string">"hungry"</span> : <span class="string">"full"</span>&#125;!</span><br><span class="line">      &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Button</span></span><br><span class="line"><span class="regexp">        onPress=&#123;() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">          setIsHungry(false);</span></span><br><span class="line"><span class="regexp">        &#125;&#125;</span></span><br><span class="line"><span class="regexp">        disabled=&#123;!isHungry&#125;</span></span><br><span class="line"><span class="regexp">        title=&#123;isHungry ? "Pour me some milk, please!" : "Thank you!"&#125;</span></span><br><span class="line"><span class="regexp">      /</span>&gt;</span><br><span class="line">    &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default function Cafe() &#123;</span></span><br><span class="line"><span class="regexp">  return (</span></span><br><span class="line"><span class="regexp">    &lt;&gt;</span></span><br><span class="line"><span class="regexp">      &lt;Cat name="Munkustrap" /</span>&gt;</span><br><span class="line">      &lt;Cat name=<span class="string">"Spot"</span> /&gt;</span><br><span class="line">    &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">  );</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Button, Text, View &#125; <span class="keyword">from</span> <span class="string">"react-native"</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 声明状态</span></span><br><span class="line">  state = &#123; <span class="attr">isHungry</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">  render(props) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;Text&gt;</span><br><span class="line">          I am &#123;<span class="keyword">this</span>.props.name&#125;, and I am</span><br><span class="line">          &#123;<span class="keyword">this</span>.state.isHungry ? <span class="string">" hungry"</span> : <span class="string">" full"</span>&#125;!</span><br><span class="line">        &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Button</span></span><br><span class="line"><span class="regexp">          onPress=&#123;() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">            &#123;/</span>* 通过 setState 改变状态 *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">            this.setState(&#123; isHungry: false &#125;);</span></span><br><span class="line"><span class="regexp">          &#125;&#125;</span></span><br><span class="line"><span class="regexp">          disabled=&#123;!this.state.isHungry&#125;</span></span><br><span class="line"><span class="regexp">          title=&#123;</span></span><br><span class="line"><span class="regexp">            this.state.isHungry ? "Pour me some milk, please!" : "Thank you!"</span></span><br><span class="line"><span class="regexp">          &#125;</span></span><br><span class="line"><span class="regexp">        /</span>&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default class Cafe extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Cat name="Munkustrap" /</span>&gt;</span><br><span class="line">        &lt;Cat name=<span class="string">"Spot"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="RN的Props"><a href="#RN的Props" class="headerlink" title="RN的Props"></a>RN的Props</h2><h3 id="原生组件的props"><a href="#原生组件的props" class="headerlink" title="原生组件的props"></a>原生组件的props</h3><p>以常见的基础组件<code>Image</code>为例，在创建一个图片时，可以传入一个名为<code>source</code>的 prop 来指定要显示的图片的地址，以及使用名为<code>style</code>的 prop 来控制其尺寸。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Image &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Bananas</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">let</span> pic = &#123;</span><br><span class="line">      uri: <span class="string">'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Image source=&#123;pic&#125; style=&#123;&#123;<span class="attr">width</span>: <span class="number">193</span>, <span class="attr">height</span>: <span class="number">110</span>&#125;&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义组件-1"><a href="#自定义组件-1" class="headerlink" title="自定义组件"></a>自定义组件</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text, View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greeting</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;&#123;<span class="attr">alignItems</span>: <span class="string">'center'</span>, <span class="attr">marginTop</span>: <span class="number">50</span>&#125;&#125;&gt;</span><br><span class="line">        &#123;<span class="comment">/* Greeting组件中将name作为一个属性来定制 */</span>&#125;</span><br><span class="line">        &lt;Text&gt;Hello &#123;<span class="keyword">this</span>.props.name&#125;!&lt;/Text&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default class LotsOfGreetings extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;View style=&#123;&#123;alignItems: 'center'&#125;&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Greeting name='Rexxar' /</span>&gt;</span><br><span class="line">        &lt;Greeting name=<span class="string">'Jaina'</span> /&gt;</span><br><span class="line">        &lt;Greeting name=<span class="string">'Valeera'</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="RN中的State"><a href="#RN中的State" class="headerlink" title="RN中的State"></a>RN中的State</h2><p>一般来说，你需要在class中声明一个<code>state</code>对象，然后在需要修改时调用<code>setState</code>方法。</p>
+<p>假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个<code>prop</code>。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到<code>state</code>中。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Text, View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blink</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 声明state对象</span></span><br><span class="line">  state = &#123; <span class="attr">isShowingText</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">  </span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="comment">// 每1000毫秒对showText状态做一次取反操作</span></span><br><span class="line">    setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isShowingText: !<span class="keyword">this</span>.state.isShowingText</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">// 根据当前showText的值决定是否显示text内容</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.state.isShowingText) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Text&gt;&#123;<span class="keyword">this</span>.props.text&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default class BlinkApp extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Blink text='I love to blink' /</span>&gt;</span><br><span class="line">        &lt;Blink text=<span class="string">'Yes blinking is so great'</span> /&gt;</span><br><span class="line">        &lt;Blink text=<span class="string">'Why did they ever take this out of HTML'</span> /&gt;</span><br><span class="line">        &lt;Blink text=<span class="string">'Look at me look at me look at me'</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>实际开发中，==我们一般不会在定时器函数（setInterval、setTimeout 等）中来操作 state==。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如<a href="http://redux.js.org/index.html" target="_blank" rel="noopener">Redux</a>来统一管理数据流。</p>
+<ul>
+<li>一切界面变化都是<code>状态state变化</code></li>
+<li><code>state</code>的修改必须通过<code>setState()</code>方法<ul>
+<li>this.state.likes = 100; // 这样的<code>直接赋值修改无效！</code></li>
+<li>setState 是一个 merge 合并操作，只修改指定属性，不影响其他属性</li>
+<li>setState 是<code>异步</code>操作，修改<code>不会马上生效</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="处理文本输入"><a href="#处理文本输入" class="headerlink" title="处理文本输入"></a>处理文本输入</h2><p><a href="https://reactnative.cn/docs/textinput#content" target="_blank" rel="noopener"><code>TextInput</code></a>是一个允许用户输入文本的基础组件。</p>
+<p>它有一个名为<code>onChangeText</code>的属性，此属性接受一个函数，而此函数会在文本变化时被调用。</p>
+<p>另外还有一个名为<code>onSubmitEditing</code>的属性，会在文本被提交后（用户按下软键盘上的提交键）调用。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/** 处理文本输入</span></span><br><span class="line"><span class="comment"> 	每输入一个单词就得到一块 🍕 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PizzaTranslator</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [text, setText] = useState(<span class="string">''</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;View style=&#123;&#123;<span class="attr">padding</span>: <span class="number">10</span>&#125;&#125;&gt;</span><br><span class="line">      &lt;TextInput</span><br><span class="line">        style=&#123;&#123;<span class="attr">height</span>: <span class="number">40</span>, <span class="attr">backgroundColor</span>: <span class="string">'#ccc'</span>&#125;&#125;</span><br><span class="line">        placeholder=<span class="string">"Type here to translate!"</span></span><br><span class="line">        onChangeText=&#123;text =&gt; setText(text)&#125;</span><br><span class="line">        defaultValue=&#123;text&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;Text style=&#123;&#123;<span class="attr">padding</span>: <span class="number">10</span>, <span class="attr">fontSize</span>: <span class="number">42</span>&#125;&#125;&gt;</span><br><span class="line">        &#123;text.split(<span class="string">' '</span>).map(<span class="function">(<span class="params">word</span>) =&gt;</span> word &amp;&amp; <span class="string">'🍕'</span>).join(<span class="string">' '</span>)&#125;</span><br><span class="line">      &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>View&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200327083821128.png" alt="image-20200327083821128" style="zoom:50%;"></p>
+<h2 id="处理触摸事件"><a href="#处理触摸事件" class="headerlink" title="处理触摸事件"></a>处理触摸事件</h2><h3 id="onPress-事件"><a href="#onPress-事件" class="headerlink" title="onPress 事件"></a>onPress 事件</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button</span><br><span class="line">  onPress=&#123;() =&gt; &#123;</span><br><span class="line">    Alert.alert(<span class="string">"你点击了按钮！"</span>);</span><br><span class="line">  &#125;&#125;</span><br><span class="line">  title=<span class="string">"点我！"</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200327084507790.png" alt="image-20200327084507790" style="zoom:50%;"></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  _onPressButton() &#123;</span><br><span class="line">    Alert.alert(<span class="string">'You tapped the button!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">      container: &#123;</span><br><span class="line">        flex: <span class="number">1</span>,</span><br><span class="line">        justifyContent: <span class="string">'center'</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      buttonContainer: &#123;</span><br><span class="line">        margin: <span class="number">20</span></span><br><span class="line">      &#125;,</span><br><span class="line">      alternativeLayoutButtonContainer: &#123;</span><br><span class="line">        margin: <span class="number">20</span>,</span><br><span class="line">        flexDirection: <span class="string">'row'</span>,</span><br><span class="line">        justifyContent: <span class="string">'space-between'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;styles.buttonContainer&#125;&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onPress=&#123;<span class="keyword">this</span>._onPressButton&#125;</span><br><span class="line">            title=<span class="string">"Press Me"</span></span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;View style=&#123;styles.buttonContainer&#125;&gt;</span></span><br><span class="line"><span class="regexp">          &lt;Button</span></span><br><span class="line"><span class="regexp">            onPress=&#123;this._onPressButton&#125;</span></span><br><span class="line"><span class="regexp">            title="Press Me"</span></span><br><span class="line"><span class="regexp">            color="#841584"</span></span><br><span class="line"><span class="regexp">          /</span>&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;View style=&#123;styles.alternativeLayoutButtonContainer&#125;&gt;</span></span><br><span class="line"><span class="regexp">          &lt;Button</span></span><br><span class="line"><span class="regexp">            onPress=&#123;this._onPressButton&#125;</span></span><br><span class="line"><span class="regexp">            title="This looks great!"</span></span><br><span class="line"><span class="regexp">          /</span>&gt;</span><br><span class="line">          &lt;Button</span><br><span class="line">            onPress=&#123;<span class="keyword">this</span>._onPressButton&#125;</span><br><span class="line">            title=<span class="string">"OK!"</span></span><br><span class="line">            color=<span class="string">"#841584"</span></span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200327085101363.png" alt="image-20200327085101363" style="zoom:50%;"></p>
+<h3 id="Touchable-系列组件"><a href="#Touchable-系列组件" class="headerlink" title="Touchable 系列组件"></a>Touchable 系列组件</h3><ul>
+<li>一般来说，你可以使用<a href="https://reactnative.cn/docs/touchablehighlight" target="_blank" rel="noopener"><strong>TouchableHighlight</strong></a>来制作按钮或者链接。注意此组件的背景会在用户手指按下时变暗。</li>
+<li>在 Android 上还可以使用<a href="https://reactnative.cn/docs/touchablenativefeedback" target="_blank" rel="noopener"><strong>TouchableNativeFeedback</strong></a>，它会在用户手指按下时形成类似墨水涟漪的视觉效果。</li>
+<li><a href="https://reactnative.cn/docs/touchableopacity" target="_blank" rel="noopener"><strong>TouchableOpacity</strong></a>会在用户手指按下时降低按钮的透明度，而不会改变背景的颜色。</li>
+<li>如果你想在处理点击事件的同时不显示任何视觉反馈，则需要使用<a href="https://reactnative.cn/docs/touchablewithoutfeedback" target="_blank" rel="noopener"><strong>TouchableWithoutFeedback</strong></a>。</li>
+</ul>
+<ul>
+<li>检测用户是否进行了长按，组件中使用<code>onLongPress</code>属性来实现。</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Alert, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  _onPressButton() &#123;</span><br><span class="line">    Alert.alert(<span class="string">'You tapped the button!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _onLongPressButton() &#123;</span><br><span class="line">    Alert.alert(<span class="string">'You long-pressed the button!'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">      container: &#123;</span><br><span class="line">        paddingTop: <span class="number">60</span>,</span><br><span class="line">        alignItems: <span class="string">'center'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      button: &#123;</span><br><span class="line">        marginBottom: <span class="number">30</span>,</span><br><span class="line">        width: <span class="number">260</span>,</span><br><span class="line">        alignItems: <span class="string">'center'</span>,</span><br><span class="line">        backgroundColor: <span class="string">'#2196F3'</span></span><br><span class="line">      &#125;,</span><br><span class="line">      buttonText: &#123;</span><br><span class="line">        textAlign: <span class="string">'center'</span>,</span><br><span class="line">        padding: <span class="number">20</span>,</span><br><span class="line">        fontSize: <span class="number">16</span>,</span><br><span class="line">        color: <span class="string">'#fff'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &#123;<span class="comment">/* 组件的背景会在用户手指按下时变暗。 */</span>&#125;</span><br><span class="line">        &lt;TouchableHighlight onPress=&#123;<span class="keyword">this</span>._onPressButton&#125; underlayColor=<span class="string">"white"</span>&gt;</span><br><span class="line">          &lt;View style=&#123;styles.button&#125;&gt;</span><br><span class="line">            &lt;Text style=&#123;styles.buttonText&#125;&gt;TouchableHighlight&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">        &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">        &#123;/</span>* 用户手指按下时降低按钮的透明度，而不会改变背景的颜色。 *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">        &lt;TouchableOpacity onPress=&#123;this._onPressButton&#125;&gt;</span></span><br><span class="line"><span class="regexp">          &lt;View style=&#123;styles.button&#125;&gt;</span></span><br><span class="line"><span class="regexp">            &lt;Text style=&#123;styles.buttonText&#125;&gt;TouchableOpacity&lt;/</span>Text&gt;</span><br><span class="line">          &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>TouchableOpacity&gt;</span><br><span class="line">        &#123;<span class="comment">/* Android 用户手指按下时形成类似墨水涟漪的视觉效果。 */</span>&#125;</span><br><span class="line">        &lt;TouchableNativeFeedback</span><br><span class="line">            onPress=&#123;<span class="keyword">this</span>._onPressButton&#125;</span><br><span class="line">            background=&#123;Platform.OS === <span class="string">'android'</span> ? TouchableNativeFeedback.SelectableBackground() : <span class="string">''</span>&#125;&gt;</span><br><span class="line">          &lt;View style=&#123;styles.button&#125;&gt;</span><br><span class="line">            &lt;Text style=&#123;styles.buttonText&#125;&gt;TouchableNativeFeedback&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">        &lt;<span class="regexp">/TouchableNativeFeedback&gt;</span></span><br><span class="line"><span class="regexp">        &#123;/</span>* 不显示任何视觉反馈 *<span class="regexp">/&#125;</span></span><br><span class="line"><span class="regexp">        &lt;TouchableWithoutFeedback</span></span><br><span class="line"><span class="regexp">            onPress=&#123;this._onPressButton&#125;</span></span><br><span class="line"><span class="regexp">            &gt;</span></span><br><span class="line"><span class="regexp">          &lt;View style=&#123;styles.button&#125;&gt;</span></span><br><span class="line"><span class="regexp">            &lt;Text style=&#123;styles.buttonText&#125;&gt;TouchableWithoutFeedback&lt;/</span>Text&gt;</span><br><span class="line">          &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>TouchableWithoutFeedback&gt;</span><br><span class="line">        &#123;<span class="comment">/* 绑定单击 和 长按事件 */</span>&#125;</span><br><span class="line">        &lt;TouchableHighlight onPress=&#123;<span class="keyword">this</span>._onPressButton&#125; onLongPress=&#123;<span class="keyword">this</span>._onLongPressButton&#125; underlayColor=<span class="string">"white"</span>&gt;</span><br><span class="line">          &lt;View style=&#123;styles.button&#125;&gt;</span><br><span class="line">            &lt;Text style=&#123;styles.buttonText&#125;&gt;Touchable <span class="keyword">with</span> Long Press&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">        &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="滚动视图"><a href="#滚动视图" class="headerlink" title="滚动视图"></a>滚动视图</h2><p><a href="https://reactnative.cn/docs/scrollview" target="_blank" rel="noopener"><code>ScrollView</code></a>是一个通用的可滚动的容器，你可以在其中放入多个组件和视图，而且这些组件并不需要是同类型的。ScrollView 不仅可以垂直滚动，还能水平滚动（通过<code>horizontal</code>属性来设置）。</p>
+<p>下面的示例代码创建了一个垂直滚动的<code>ScrollView</code>，其中还混杂了图片和文字组件。</p>
+<p><img src="/view/posts/e61ae078/ScrollView.gif" alt="ScrollView" style="zoom:50%;"></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;ScrollView style=&#123;&#123;<span class="attr">backgroundColor</span>: <span class="string">'#df02d0'</span>&#125;&#125;&gt;</span><br><span class="line">        &lt;Text style=&#123;&#123;<span class="attr">fontSize</span>:<span class="number">48</span>&#125;&#125;&gt;Scroll me plz&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Image source=&#123;require('./</span><span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Text style=&#123;&#123;fontSize:48&#125;&#125;&gt;If you like&lt;/Text&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Text style=&#123;&#123;fontSize:48&#125;&#125;&gt;Scrolling down&lt;/Text&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Text style=&#123;&#123;fontSize:48&#125;&#125;&gt;What'</span>s the best&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Image source=&#123;require('./</span><span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Text style=&#123;&#123;fontSize:48&#125;&#125;&gt;Framework around?&lt;/Text&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Image source=&#123;require('</span>./<span class="number">1.</span>png<span class="string">')&#125; style=&#123;&#123;width: 100, height: 100, borderColor: '</span>gray<span class="string">',  borderWidth: 1&#125;&#125; /&gt;</span></span><br><span class="line"><span class="string">        &lt;Text style=&#123;&#123;fontSize:80&#125;&#125;&gt;React Native&lt;/Text&gt;</span></span><br><span class="line"><span class="string">      &lt;/ScrollView&gt;</span></span><br><span class="line"><span class="string">  );</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><code>ScrollView</code>适合用来显示数量不多的滚动元素。放置在<code>ScrollView</code>中的所有组件都会被渲染，哪怕有些组件因为内容太长被挤出了屏幕外。</p>
+<h2 id="长列表"><a href="#长列表" class="headerlink" title="长列表"></a>长列表</h2><p><code>FlatList</code>组件用于显示一个==垂直的滚动列表==，其中的元素之间结构近似而仅数据不同。</p>
+<p><code>FlatList</code>更适于==长列表数据，且元素个数可以增删。==和<a href="https://reactnative.cn/docs/using-a-scrollview" target="_blank" rel="noopener"><code>ScrollView</code></a>不同的是，<code>FlatList</code>并==不立即渲染所有元素，而是优先渲染屏幕上可见的元素。==</p>
+<p><code>FlatList</code>组件必须的两个属性是<code>data</code>和<code>renderItem</code>。<code>data</code>是列表的数据源，而<code>renderItem</code>则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。</p>
+<p><img src="/view/posts/e61ae078/FlatList.gif" alt="FlatList" style="zoom:50%;"></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">      container: &#123;</span><br><span class="line">       flex: <span class="number">1</span>,</span><br><span class="line">       paddingTop: <span class="number">22</span></span><br><span class="line">      &#125;,</span><br><span class="line">      item: &#123;</span><br><span class="line">        padding: <span class="number">10</span>,</span><br><span class="line">        fontSize: <span class="number">18</span>,</span><br><span class="line">        height: <span class="number">44</span>,</span><br><span class="line">        borderBottomColor: <span class="string">'#f0f'</span>,</span><br><span class="line">        borderBottomWidth: <span class="number">1</span></span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">const</span> arr = [ &#123;<span class="attr">key</span>: <span class="string">'Devin'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Julie'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Dan'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Dominic'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Jackson'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'James'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Joel'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'John'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Jillian'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Jimmy'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Dan'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Dominic'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Jackson'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'James'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Joel'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'John'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Jillian'</span>&#125;, &#123;<span class="attr">key</span>: <span class="string">'Jimmy'</span>&#125;,</span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;FlatList</span><br><span class="line">          data=&#123; arr &#125;</span><br><span class="line">          renderItem=&#123;(&#123;item&#125;) =&gt; &lt;Text style=&#123;styles.item&#125;&gt;&#123;item.key&#125;&lt;/Text&gt;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>如果要渲染的是一组需要分组的数据，也许还带有分组标签的，那么<code>SectionList</code>将是个不错的选择</p>
+<p><img src="/view/posts/e61ae078/SectionList.gif" alt="SectionList" style="zoom:50%;"></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> arr = [</span><br><span class="line">      &#123;<span class="attr">title</span>: <span class="string">'A'</span>, <span class="attr">data</span>: [<span class="string">'Aevin'</span>, <span class="string">'Aan'</span>, <span class="string">'Aominic'</span>]&#125;,</span><br><span class="line">      &#123;<span class="attr">title</span>: <span class="string">'B'</span>, <span class="attr">data</span>: [<span class="string">'Bevin'</span>, <span class="string">'Ban'</span>, <span class="string">'Bominic'</span>]&#125;,</span><br><span class="line">      &#123;<span class="attr">title</span>: <span class="string">'D'</span>, <span class="attr">data</span>: [<span class="string">'Devin'</span>, <span class="string">'Dan'</span>, <span class="string">'Dominic'</span>]&#125;,</span><br><span class="line">      &#123;<span class="attr">title</span>: <span class="string">'J'</span>, <span class="attr">data</span>: [<span class="string">'Jackson'</span>, <span class="string">'James'</span>, <span class="string">'Jillian'</span>, <span class="string">'Jimmy'</span>, <span class="string">'Joel'</span>, <span class="string">'John'</span>, <span class="string">'Julie'</span>]&#125;,</span><br><span class="line">    ]</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;SectionList</span><br><span class="line">          sections=&#123;arr&#125;</span><br><span class="line">          renderItem=&#123;(&#123;item&#125;) =&gt; &lt;Text style=&#123;styles.item&#125;&gt;&#123;item&#125;&lt;/Text&gt;&#125;</span><br><span class="line">          renderSectionHeader=&#123;(&#123;section&#125;) =&gt; &lt;Text style=&#123;styles.sectionHeader&#125;&gt;&#123;section.title&#125;&lt;/Text&gt;&#125;</span><br><span class="line">          keyExtractor=&#123;(item, index) =&gt; index&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">const styles = StyleSheet.create(&#123;</span></span><br><span class="line"><span class="regexp">  container: &#123;</span></span><br><span class="line"><span class="regexp">   flex: 1,</span></span><br><span class="line"><span class="regexp">   paddingTop: 22</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  sectionHeader: &#123;</span></span><br><span class="line"><span class="regexp">    paddingTop: 2,</span></span><br><span class="line"><span class="regexp">    paddingLeft: 10,</span></span><br><span class="line"><span class="regexp">    paddingRight: 10,</span></span><br><span class="line"><span class="regexp">    paddingBottom: 2,</span></span><br><span class="line"><span class="regexp">    fontSize: 14,</span></span><br><span class="line"><span class="regexp">    fontWeight: 'bold',</span></span><br><span class="line"><span class="regexp">    backgroundColor: 'rgba(247,247,247,1.0)',</span></span><br><span class="line"><span class="regexp">    borderTopWidth: 1,</span></span><br><span class="line"><span class="regexp">    borderTopColor: '#db5420'</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  item: &#123;</span></span><br><span class="line"><span class="regexp">    padding: 10,</span></span><br><span class="line"><span class="regexp">    fontSize: 18,</span></span><br><span class="line"><span class="regexp">    height: 44,</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">&#125;)</span></span><br></pre></td></tr></table></figure>
+<h2 id="网络（进行中）"><a href="#网络（进行中）" class="headerlink" title="网络（进行中）"></a>网络（进行中）</h2><h3 id="使用-Fetch"><a href="#使用-Fetch" class="headerlink" title="使用 Fetch"></a>使用 Fetch</h3><h4 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a>发起请求</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'https://mywebsite.com/endpoint/'</span>, &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    Accept: <span class="string">'application/json'</span>,</span><br><span class="line">    <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  body: <span class="built_in">JSON</span>.stringify(&#123;</span><br><span class="line">    firstParam: <span class="string">'yourValue'</span>,</span><br><span class="line">    secondParam: <span class="string">'yourOtherValue'</span>,</span><br><span class="line">  &#125;),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="处理服务器的响应数据"><a href="#处理服务器的响应数据" class="headerlink" title="处理服务器的响应数据"></a>处理服务器的响应数据</h4><p>Fetch 方法会返回一个<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a>，这种模式可以简化异步风格的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMoviesFromApiAsync</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> fetch(<span class="string">'https://facebook.github.io/react-native/movies.json'</span>)</span><br><span class="line">    .then(<span class="function">(<span class="params">response</span>) =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function">(<span class="params">responseJson</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> responseJson.movies;</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(error);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// async/await 语法：</span></span><br><span class="line"><span class="comment">// 注意这个方法前面有async关键字</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getMoviesFromApi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 注意这里的await语句，其所在的函数必须有async关键字声明</span></span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">await</span> fetch(</span><br><span class="line">      <span class="string">'https://facebook.github.io/react-native/movies.json'</span>,</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">let</span> responseJson = <span class="keyword">await</span> response.json();</span><br><span class="line">    <span class="keyword">return</span> responseJson.movies;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试(catch 住<code>fetch</code>可能抛出的异常)</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state =&#123; <span class="attr">isLoading</span>: <span class="literal">true</span>&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">    <span class="comment">//  *****************</span></span><br><span class="line">    <span class="keyword">return</span> fetch(<span class="string">'https://facebook.github.io/react-native/movies.json'</span>)</span><br><span class="line">      .then(<span class="function">(<span class="params">response</span>) =&gt;</span> response.json())</span><br><span class="line">      .then(<span class="function">(<span class="params">responseJson</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          isLoading: <span class="literal">false</span>,</span><br><span class="line">          dataSource: responseJson.movies,</span><br><span class="line">        &#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;)</span><br><span class="line">      .catch(<span class="function">(<span class="params">error</span>) =&gt;</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.error(error);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.state.isLoading)&#123;</span><br><span class="line">      <span class="keyword">return</span>(</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">padding</span>: <span class="number">20</span>&#125;&#125;&gt;</span><br><span class="line">          &lt;ActivityIndicator/&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">      )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    return(</span></span><br><span class="line"><span class="regexp">      &lt;View style=&#123;&#123;flex: 1, paddingTop:20&#125;&#125;&gt;</span></span><br><span class="line"><span class="regexp">        &lt;FlatList</span></span><br><span class="line"><span class="regexp">          data=&#123;this.state.dataSource&#125;</span></span><br><span class="line"><span class="regexp">          renderItem=&#123;(&#123;item&#125;) =&gt; &lt;Text&gt;&#123;item.title&#125;, &#123;item.releaseYear&#125;&lt;/</span>Text&gt;&#125;</span><br><span class="line">          keyExtractor=&#123;(item, index) =&gt; item.id&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从 Android9 开始，也会默认阻止 http 请求，请参考<a href="https://blog.csdn.net/qq_40347548/article/details/86766932" target="_blank" rel="noopener">相关配置</a></p>
+</blockquote>
+<blockquote>
+<p>默认情况下，iOS 会阻止所有 http 的请求，以督促开发者使用 https。如果你仍然需要使用 http 协议，那么首先需要添加一个 App Transport Security 的例外，详细可参考<a href="https://segmentfault.com/a/1190000002933776" target="_blank" rel="noopener">这篇帖子</a>。</p>
+</blockquote>
+<h3 id="使用其他的网络库"><a href="#使用其他的网络库" class="headerlink" title="使用其他的网络库"></a>使用其他的网络库</h3><p>React Native 中已经内置了<a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">XMLHttpRequest API</a>(也就是俗称的 ajax)。一些基于 XMLHttpRequest 封装的第三方库也可以使用，例如<a href="https://github.com/niftylettuce/frisbee" target="_blank" rel="noopener">frisbee</a>或是<a href="https://github.com/mzabriskie/axios" target="_blank" rel="noopener">axios</a>等。但注意不能使用 jQuery。</p>
+<blockquote>
+<p>在应用中你可以访问任何网站，没有<a href="http://en.wikipedia.org/wiki/Cross-origin_resource_sharing" target="_blank" rel="noopener">跨域</a>的限制。</p>
+</blockquote>
+<h2 id="电影列表"><a href="#电影列表" class="headerlink" title="电影列表"></a>电影列表</h2><blockquote>
+<p>在一个<code>FlatList</code>中展示出电影列表。</p>
+</blockquote>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>使用<code>cli</code>工具创建一个工程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native init SampleAppMovies</span><br></pre></td></tr></table></figure>
+<p>这条命令除了会下载<code>js</code>文件，还会下载在<code>SampleAppMovies/iOS/SampleAppMovies.xcodeproj</code>和<code>SampleAppMovies/android/app</code>下分别创建一个新的 XCode 工程(iOS)和一个 gradle 工程(Android)。</p>
+<h3 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h3><p><code>Android</code>版本：先连接设备或启动模拟器，然后在<code>SampleAppMovies</code>目录下运行<code>react-native run-android</code>，就会构建工程。</p>
+<h4 id="电影列表-1"><a href="#电影列表-1" class="headerlink" title="电影列表"></a>电影列表</h4><p><img src="/view/posts/e61ae078/movielist.gif" alt="movielist" style="zoom:50%;"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState, Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; View, Text, Button, Alert, Platform, Image, ScrollView, TextInput, FlatList, SectionList, ActivityIndicator, StyleSheet, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原 url</span></span><br><span class="line"><span class="keyword">const</span> REQUEST_URL =  <span class="string">"https://raw.githubusercontent.com/facebook/react-native/0.51-stable/docs/MoviesExample.json"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      data: [],</span><br><span class="line">      loaded: <span class="literal">false</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.fetchData = <span class="keyword">this</span>.fetchData.bind(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 请求数据</span></span><br><span class="line">  fetchData() &#123;</span><br><span class="line">    <span class="keyword">let</span> data = <span class="built_in">require</span>(<span class="string">'./test/moivelist.json'</span>)</span><br><span class="line">    <span class="comment">// 通过定时器 模拟ajax</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        data: data.movies,</span><br><span class="line">        loaded: <span class="literal">true</span></span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">    <span class="comment">// 真正请求的ajax</span></span><br><span class="line">    <span class="comment">// fetch(REQUEST_URL)</span></span><br><span class="line">    <span class="comment">//   .then((response) =&gt; response.json())</span></span><br><span class="line">    <span class="comment">//   .then((responseData) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     // 注意，这里使用了this关键字，为了保证this在调用时仍然指向当前组件，我们需要对其进行“绑定”操作</span></span><br><span class="line">    <span class="comment">//     this.setState(&#123;</span></span><br><span class="line">    <span class="comment">//       movies: responseData.movies,</span></span><br><span class="line">    <span class="comment">//     &#125;);</span></span><br><span class="line">    <span class="comment">//   &#125;);</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 在生命周期中调用接口</span></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.fetchData();</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.state.loaded) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.renderLoadingView();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;FlatList</span><br><span class="line">      data=&#123;<span class="keyword">this</span>.state.data&#125;</span><br><span class="line">      renderItem=&#123;<span class="keyword">this</span>.renderMovie&#125;</span><br><span class="line">      style=&#123;styles.list&#125;</span><br><span class="line">      keyExtractor=&#123;item =&gt; item.id&#125;</span><br><span class="line">    /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 加载动画</span></span><br><span class="line">  renderLoadingView() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Text&gt;</span><br><span class="line">          正在加载电影数据……</span><br><span class="line">        &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 渲染列表</span></span><br><span class="line">  renderMovie(&#123; item &#125;) &#123;</span><br><span class="line">    <span class="comment">// &#123; item &#125;是一种“解构”写法，请阅读ES2015语法的相关文档</span></span><br><span class="line">    <span class="comment">// item也是FlatList中固定的参数名，请阅读FlatList的相关文档</span></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Image</span><br><span class="line">          source=&#123;&#123;<span class="attr">uri</span>: item.posters.thumbnail&#125;&#125;</span><br><span class="line">          style=&#123;styles.thumbnail&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;View style=&#123;styles.rightContainer&#125;&gt;</span><br><span class="line">          &lt;Text style=&#123;styles.title&#125;&gt;&#123;item.title&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;Text style=&#123;styles.year&#125;&gt;&#123;item.year&#125;&lt;/</span>Text&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  list: &#123;</span><br><span class="line">    paddingTop: <span class="number">20</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">    flexDirection: <span class="string">'row'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    backgroundColor: <span class="string">'#F5FCFF'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  rightContainer: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  title: &#123;</span><br><span class="line">    fontSize: <span class="number">20</span>,</span><br><span class="line">    marginBottom: <span class="number">8</span>,</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  year: &#123;</span><br><span class="line">    textAlign: <span class="string">'center'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  thumbnail: &#123;</span><br><span class="line">    width: <span class="number">53</span>,</span><br><span class="line">    height: <span class="number">81</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h2 id="RN中的样式"><a href="#RN中的样式" class="headerlink" title="RN中的样式"></a>RN中的样式</h2><p>所有的核心组件都接受名为<code>style</code>的属性。这些样式名基本上是遵循了 web 上的 CSS 的命名，只是按照 JS 的语法要求使用了驼峰命名法，例如将<code>background-color</code>改为<code>backgroundColor</code>。</p>
+<ul>
+<li><p><code>style</code>属性可以是一个普通的 JavaScript 对象</p>
+</li>
+<li><p>使用<code>StyleSheet.create</code>来集中定义组件的样式。</p>
+</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; StyleSheet, Text, View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">LotsOfStyles</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;Text style=&#123;styles.red&#125;&gt;just red&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Text style=&#123;styles.bigBlue&#125;&gt;just bigBlue&lt;/</span>Text&gt;</span><br><span class="line">        &lt;Text style=&#123;[styles.bigBlue, styles.red]&#125;&gt;bigBlue, then red&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Text style=&#123;[styles.red, styles.bigBlue]&#125;&gt;red, then bigBlue&lt;/</span>Text&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const styles = StyleSheet.create(&#123;</span></span><br><span class="line"><span class="regexp">  bigBlue: &#123;</span></span><br><span class="line"><span class="regexp">    color: 'blue',</span></span><br><span class="line"><span class="regexp">    fontWeight: 'bold',</span></span><br><span class="line"><span class="regexp">    fontSize: 30,</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  red: &#123;</span></span><br><span class="line"><span class="regexp">    color: 'red',</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
+<h2 id="高度与宽度"><a href="#高度与宽度" class="headerlink" title="高度与宽度"></a>高度与宽度</h2><p>组件的高度和宽度决定了其在屏幕上显示的尺寸。</p>
+<h3 id="指定宽高"><a href="#指定宽高" class="headerlink" title="指定宽高"></a>指定宽高</h3><p>样式中指定固定的<code>width</code>和<code>height</code>。React Native 中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; View &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">FixedDimensionsBasics</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">50</span>, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'powderblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'skyblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">150</span>, <span class="attr">height</span>: <span class="number">150</span>, <span class="attr">backgroundColor</span>: <span class="string">'steelblue'</span>&#125;&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>这样给组件设置尺寸也是一种常见的模式，比如要求在不同尺寸的屏幕上都显示成一样的大小。</p>
+<p><img src="/view/posts/e61ae078/image-20200326151335084.png" alt="image-20200326151335084" style="zoom:50%;"></p>
+<p><strong>注意：此时没法适配多种屏幕大小</strong></p>
+<h3 id="弹性（Flex）宽高"><a href="#弹性（Flex）宽高" class="headerlink" title="弹性（Flex）宽高"></a>弹性（Flex）宽高</h3><p>在组件样式中使用<code>flex</code>可以使其在可利用的空间中动态地扩张或收缩。一般而言我们会使用<code>flex:1</code>来指定某个组件扩张以撑满所有剩余的空间。如果有多个并列的子组件使用了<code>flex:1</code>，则这些子组件会平分父容器中剩余的空间。如果这些并列的子组件的<code>flex</code>值不一样，则谁的值更大，谁占据剩余空间的比例就更大（即占据剩余空间的比等于并列组件间<code>flex</code>值的比）。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;View style=&#123;styles.father&#125;&gt;</span><br><span class="line">      &lt;View style=&#123;styles.son1&#125; /&gt;</span><br><span class="line">      &lt;View style=&#123;styles.son2&#125; /&gt;</span><br><span class="line">      &lt;View style=&#123;styles.son3&#125; /&gt;</span><br><span class="line">    &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 去掉父View中的`flex: 1`。  ----- View不再具有尺寸，因此子组件也无法再撑开。</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 然后再用`height: 300`来代替父View的`flex: 1` ---- 父View的高度变成300</span></span><br><span class="line"><span class="regexp">const styles = StyleSheet.create(&#123;</span></span><br><span class="line"><span class="regexp">  father: &#123;</span></span><br><span class="line"><span class="regexp">    flex: 1,</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ flexDirection: "row", /</span><span class="regexp">/ 改变子元素的伸缩方向</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  son1: &#123;</span></span><br><span class="line"><span class="regexp">    flex: 1,</span></span><br><span class="line"><span class="regexp">    backgroundColor: 'powderblue'</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  son2: &#123;</span></span><br><span class="line"><span class="regexp">    flex: 2, </span></span><br><span class="line"><span class="regexp">    backgroundColor: 'skyblue'</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  son3: &#123;</span></span><br><span class="line"><span class="regexp">    flex: 3,</span></span><br><span class="line"><span class="regexp">    backgroundColor: 'steelblue'</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200326151248022.png" alt="image-20200326151248022" style="zoom:50%;"></p>
+<h2 id="使用Flexbox布局"><a href="#使用Flexbox布局" class="headerlink" title="使用Flexbox布局"></a>使用Flexbox布局</h2><p>Flexbox 可以在不同屏幕尺寸上提供一致的布局结构。</p>
+<p>使用<code>flexDirection</code>、<code>alignItems</code>和 <code>justifyContent</code>三个样式属性就已经能满足大多数布局需求。</p>
+<blockquote>
+<p>React Native 中的 Flexbox 的工作原理和 web 上的 CSS 基本一致，当然也存在少许差异。首先是默认值不同：<code>flexDirection</code>的默认值是<code>column</code>而不是<code>row</code>，而<code>flex</code>也只能指定一个数字值。</p>
+</blockquote>
+<h3 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h3><p>如上</p>
+<h3 id="Flex-Direction"><a href="#Flex-Direction" class="headerlink" title="Flex Direction"></a>Flex Direction</h3><p><code>flexDirection</code>可以决定布局的<strong>主轴</strong>。<strong>水平轴(<code>row</code>)</strong>方向，竖直轴(<code>column</code>)<strong>方向。默认值是</strong>竖直轴(<code>column</code>)方向。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// 尝试把`flexDirection`改为`column`看看</span></span><br><span class="line">      &lt;View style=&#123;&#123;<span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">flexDirection</span>: <span class="string">'row'</span>&#125;&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">50</span>, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'powderblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">50</span>, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'skyblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">50</span>, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'steelblue'</span>&#125;&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200326154915534.png" alt="image-20200326154915534" style="zoom:50%;"></p>
+<h3 id="布局方向"><a href="#布局方向" class="headerlink" title="布局方向"></a>布局方向</h3><p><strong>LTR：文本和子项，从左到右排列</strong></p>
+<p>布局方向指定层次结构中子级和文本的布局方向。 布局方向也会影响边的起点和终点。</p>
+<p> 默认情况下，React Native使用LTR布局方向进行布局。 在此模式下，开始是指左，结束是指右。</p>
+<p>LTR（默认值）文本和子项，从左到右排列。 元素的开始处应用的边距和填充在左侧。</p>
+<p>RTL文本和子级，从右到左排列。 应用于元素开始的边距和填充在右侧。</p>
+<h3 id="Justify-Content"><a href="#Justify-Content" class="headerlink" title="Justify Content"></a>Justify Content</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// 尝试把`justifyContent`改为`center`看看</span></span><br><span class="line">      <span class="comment">// 尝试把`flexDirection`改为`row`看看</span></span><br><span class="line">      &lt;View style=&#123;&#123;</span><br><span class="line">        flex: <span class="number">1</span>,</span><br><span class="line">        flexDirection: <span class="string">'column'</span>, <span class="comment">// 默认纵向布局</span></span><br><span class="line">        justifyContent: <span class="string">'space-between'</span>,</span><br><span class="line">      &#125;&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'powderblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'skyblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">100</span>, <span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'steelblue'</span>&#125;&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200326155234896.png" alt="image-20200326155234896" style="zoom:50%;"></p>
+<h3 id="Align-Items"><a href="#Align-Items" class="headerlink" title="Align Items"></a>Align Items</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// 尝试把`alignItems`改为`flex-start`看看</span></span><br><span class="line">      <span class="comment">// 尝试把`justifyContent`改为`flex-end`看看</span></span><br><span class="line">      <span class="comment">// 尝试把`flexDirection`改为`row`看看</span></span><br><span class="line">      &lt;View style=&#123;&#123;</span><br><span class="line">        flex: <span class="number">1</span>,</span><br><span class="line">        flexDirection: <span class="string">'column'</span>,</span><br><span class="line">        justifyContent: <span class="string">'center'</span>,</span><br><span class="line">        alignItems: <span class="string">'stretch'</span>,</span><br><span class="line">      &#125;&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">width</span>: <span class="number">50</span>, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'powderblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'skyblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'steelblue'</span>&#125;&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/view/posts/e61ae078/image-20200326155524158.png" alt="image-20200326155524158" style="zoom:50%;"></p>
+<h3 id="Align-Self"><a href="#Align-Self" class="headerlink" title="Align Self"></a>Align Self</h3><p>alignSelf具有与alignItems相同的选项和效果，但是不影响容器中的子元素，您可以将此属性应用于单个子元素，以更改其在其父元素中的对齐方式。alignSelf用alignItems覆盖父类设置的任何选项。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;&#123;</span><br><span class="line">        flex: <span class="number">1</span>,</span><br><span class="line">        flexDirection: <span class="string">'column'</span>,</span><br><span class="line">        justifyContent: <span class="string">'center'</span>,</span><br><span class="line">        alignItems: <span class="string">'stretch'</span>,</span><br><span class="line">      &#125;&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'powderblue'</span>&#125;&#125; &gt;</span><br><span class="line">          &lt;Text style=&#123;&#123;<span class="attr">alignSelf</span>: <span class="string">'flex-end'</span>,<span class="attr">weight</span>: <span class="number">50</span>, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'red'</span>&#125;&#125; &gt;子内容&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">height</span>: <span class="number">50</span>, <span class="attr">backgroundColor</span>: <span class="string">'skyblue'</span>&#125;&#125; /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;<span class="attr">height</span>: <span class="number">100</span>, <span class="attr">backgroundColor</span>: <span class="string">'steelblue'</span>&#125;&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>alignSelf: <code>flex-start|flex-end|center|stretch</code></strong></p>
+<p><img src="/view/posts/e61ae078/image-20200326160914205.png" alt="image-20200326160914205" style="zoom:50%;"></p>
+<h3 id="Align-Content"><a href="#Align-Content" class="headerlink" title="Align Content"></a>Align Content</h3><p>alignContent定义沿横轴的线分布。 仅当使用flexWrap将项目包装到多行时，此功能才有效。</p>
+<ul>
+<li><code>flex-start</code>（默认值）将换行对齐到容器横轴的起点。</li>
+<li><code>flex-end</code>将换行对齐到容器横轴的末端。</li>
+<li><code>stretch</code> 包装线以匹配容器横轴的高度。</li>
+<li><code>center</code>将包装线对齐到容器横轴的中心。</li>
+<li><code>space-between</code>在容器的主轴上均匀间隔的线，在线之间分配剩余空间。</li>
+<li><code>space-around</code>在容器的主轴上均匀间隔地包裹线，在线周围分配剩余空间。 与使用空格之间的空间相比，周围的空间将导致空间分配到第一行的开头和最后一行的末尾。</li>
+<li><code>space-evenly</code> 沿主轴均匀地分布在对齐容器内。 每对相邻项之间的间距，主开始边缘和第一个项目以及主结束边缘和最后一个项目都完全相同。</li>
+</ul>
+<p><img src="/view/posts/e61ae078/image-20200331154557560.png" alt="image-20200331154557560" style="zoom:67%;"></p>
+<h3 id="Flex-Wrap"><a href="#Flex-Wrap" class="headerlink" title="Flex Wrap"></a>Flex Wrap</h3><p>flexWrap属性在容器上设置，并控制当子原生沿主轴溢出容器大小时发生的情况。 默认情况下，子级被强制为一行（可以收缩元素）。 如果允许包装，则根据需要将项目沿主轴包装成多行。</p>
+<p>换行时，可以使用alignContent指定行在容器中的放置方式。</p>
+<p><img src="/view/posts/e61ae078/image-20200331154722643.png" alt="image-20200331154722643" style="zoom:50%;"></p>
+<h3 id="Flex-Basis-Grow-and-Shrink"><a href="#Flex-Basis-Grow-and-Shrink" class="headerlink" title="Flex Basis, Grow, and Shrink"></a>Flex Basis, Grow, and Shrink</h3><ul>
+<li><p>flexGrow描述如何沿主轴在容器的子级之间分配容器中的任何空间。 布置好其子项后，容器将根据其子项指定的伸缩增长值分配所有剩余空间。</p>
+<ul>
+<li>flexGrow接受任何大于等于0的浮点值，其中0为默认值。 容器将在孩子之间分配剩余空间，该剩余空间将根据孩子的弹性增长值来加权。</li>
+</ul>
+</li>
+<li><p>flexShrink描述了在子项的总大小溢出主轴上容器大小的情况下如何沿主轴收缩子项。 Flex收缩与Flex增长非常相似，如果任何溢出大小都被视为负剩余空间，则可以用相同的方式来考虑。 通过允许孩子根据需要生长和收缩，这两个属性也可以很好地协同工作。</p>
+<ul>
+<li>Flex收缩接受任何大于等于0的浮点值，默认值为1。 容器将根据其子项的flex收缩值对子项进行收缩。</li>
+</ul>
+</li>
+<li><p>flexBasis是一种与轴无关的方式，用于沿主轴提供项目的默认大小。 如果子项的父级是具有flexDirection：row的容器，则设置子项的flex基础类似于设置子项的宽度；如果子项的父级是具有flexDirection：列的容器，则设置子项的高度。 项目的伸缩基础是该项目的默认大小，即执行任何伸缩增长和伸缩收缩计算之前的项目大小。</p>
+</li>
+</ul>
+<h3 id="宽度和高度"><a href="#宽度和高度" class="headerlink" title="宽度和高度"></a>宽度和高度</h3><p>Yoga中的width属性指定元素内容区域的宽度。 同样，height属性指定元素内容区域的高度。</p>
+<p>宽度和高度都可以采用以下值：</p>
+<ul>
+<li><p>auto是默认值，React Native根据元素的内容（无论是其他子元素，文本还是图像）计算元素的宽度/高度。</p>
+</li>
+<li><p>pixel定义宽度/高度，以绝对像素为单位。 根据组件上设置的其他样式，这可能是节点的最终尺寸，也可能不是。</p>
+</li>
+<li><p>percent定义宽度或高度，以其父级宽度或高度的百分比表示。</p>
+</li>
+</ul>
+<h3 id="绝对和相对布局"><a href="#绝对和相对布局" class="headerlink" title="绝对和相对布局"></a>绝对和相对布局</h3><p>元素的位置类型定义了元素在其父元素中的位置。</p>
+<p>相对（默认值）默认情况下，元素是相对放置的。 这意味着元素将根据布局的正常流程进行定位，然后根据上，右，下和左的值相对于该位置偏移。 偏移量不会影响任何同级元素或父元素的位置。</p>
+<p>绝对当绝对定位时，元素不参与正常的布局流程。 相反，它的布局与兄弟姐妹无关。 根据顶部，右侧，底部和左侧的值确定位置。</p>
+<p><img src="/view/posts/e61ae078/image-20200331155044160.png" alt="image-20200331155044160" style="zoom:50%;"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/ea50967e.html" rel="next" title="SASS">
+                <i class="fa fa-chevron-left"></i> SASS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/8814181e.html" rel="prev" title="js中的原型及原型链">
+                js中的原型及原型链 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="houfee">
+            
+              <p class="site-author-name" itemprop="name">houfee</p>
+              <div class="site-description motion-element" itemprop="description">life and learn</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#入门基础"><span class="nav-text">入门基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#核心组件和原生组件"><span class="nav-text">核心组件和原生组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原生组件"><span class="nav-text">原生组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心组件"><span class="nav-text">核心组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React基础"><span class="nav-text">React基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件"><span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-Component"><span class="nav-text">Function Component</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Component"><span class="nav-text">Class Component</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX"><span class="nav-text">JSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义组件"><span class="nav-text">自定义组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#props"><span class="nav-text">props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#state"><span class="nav-text">state</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RN的Props"><span class="nav-text">RN的Props</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原生组件的props"><span class="nav-text">原生组件的props</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义组件-1"><span class="nav-text">自定义组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RN中的State"><span class="nav-text">RN中的State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理文本输入"><span class="nav-text">处理文本输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理触摸事件"><span class="nav-text">处理触摸事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#onPress-事件"><span class="nav-text">onPress 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Touchable-系列组件"><span class="nav-text">Touchable 系列组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动视图"><span class="nav-text">滚动视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长列表"><span class="nav-text">长列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络（进行中）"><span class="nav-text">网络（进行中）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Fetch"><span class="nav-text">使用 Fetch</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发起请求"><span class="nav-text">发起请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理服务器的响应数据"><span class="nav-text">处理服务器的响应数据</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用其他的网络库"><span class="nav-text">使用其他的网络库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电影列表"><span class="nav-text">电影列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发"><span class="nav-text">开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电影列表-1"><span class="nav-text">电影列表</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计"><span class="nav-text">设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RN中的样式"><span class="nav-text">RN中的样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高度与宽度"><span class="nav-text">高度与宽度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指定宽高"><span class="nav-text">指定宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹性（Flex）宽高"><span class="nav-text">弹性（Flex）宽高</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Flexbox布局"><span class="nav-text">使用Flexbox布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex"><span class="nav-text">Flex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-Direction"><span class="nav-text">Flex Direction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局方向"><span class="nav-text">布局方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Justify-Content"><span class="nav-text">Justify Content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Align-Items"><span class="nav-text">Align Items</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Align-Self"><span class="nav-text">Align Self</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Align-Content"><span class="nav-text">Align Content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-Wrap"><span class="nav-text">Flex Wrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-Basis-Grow-and-Shrink"><span class="nav-text">Flex Basis, Grow, and Shrink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宽度和高度"><span class="nav-text">宽度和高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对和相对布局"><span class="nav-text">绝对和相对布局</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">houfee</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.0.1"></script>
+
+  <script src="/js/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.0.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.0.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.0.1"></script>
+<script src="/js/post-details.js?v=7.0.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.0.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'CHXFaXIYKCfTPne1Qz1s0qra-gzGzoHsz',
+    appKey: '1tYSQQsYUaRxhDHMo1ujDwb1',
+    placeholder: '(ヾﾉ≧∀≦)o来啊，老铁，快活啊!',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+body {
+  background-color: #eeeeee;
+  padding-top: 50px;
+  margin: 20px 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+/* 导航栏 */
+.res-navbar {
+  border: none;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #777777;
+}
+.res-navbar .navbar-brand {
+  margin-top: 5px;
+  color: #777;
+}
+.res-navbar .navbar-brand .icon-zhaopin {
+  font-size: 48px;
+  color: #6ac6db;
+}
+.res-navbar .navbar-brand:hover,
+.res-navbar .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+.res-navbar .navbar-text {
+  color: #777;
+}
+.res-navbar .navbar-nav > li > a {
+  color: #777;
+  height: 40px;
+  line-height: 27px;
+  padding: 5px 15px;
+}
+.res-navbar .navbar-nav > li > a:hover,
+.res-navbar .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent;
+  border-bottom: 3px solid #6ac6db;
+}
+.res-navbar .navbar-nav > .active > a,
+.res-navbar .navbar-nav > .active > a:hover,
+.res-navbar .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: transparent;
+  border-bottom: 3px solid #6ac6db;
+}
+.res-navbar .navbar-nav > .disabled > a,
+.res-navbar .navbar-nav > .disabled > a:hover,
+.res-navbar .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+.res-navbar .navbar-toggle {
+  border-color: #ddd;
+  margin-top: 18px;
+}
+.res-navbar .navbar-toggle:hover,
+.res-navbar .navbar-toggle:focus {
+  background-color: #ddd;
+}
+.res-navbar .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.res-navbar .navbar-collapse,
+.res-navbar .navbar-form {
+  border-color: #e7e7e7;
+}
+.res-navbar .navbar-nav > .open > a,
+.res-navbar .navbar-nav > .open > a:hover,
+.res-navbar .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+@media (max-width: 767px) {
+  .res-navbar .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+  .res-navbar .navbar-nav .open .dropdown-menu > li > a:hover,
+  .res-navbar .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+    background-color: transparent;
+  }
+  .res-navbar .navbar-nav .open .dropdown-menu > .active > a,
+  .res-navbar .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .res-navbar .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+  .res-navbar .navbar-nav .open .dropdown-menu > .disabled > a,
+  .res-navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .res-navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+}
+.res-navbar .navbar-link {
+  color: #777;
+}
+.res-navbar .navbar-link:hover {
+  color: #333;
+}
+.res-navbar .btn-link {
+  color: #777;
+}
+.res-navbar .btn-link:hover,
+.res-navbar .btn-link:focus {
+  color: #333;
+}
+.res-navbar .btn-link[disabled]:hover,
+fieldset[disabled] .res-navbar .btn-link:hover,
+.res-navbar .btn-link[disabled]:focus,
+fieldset[disabled] .res-navbar .btn-link:focus {
+  color: #ccc;
+}
+/* 个人介绍 */
+.res-introduce {
+  padding: 10px 0;
+  border: 1px solid #6ac6db;
+  box-shadow: inset 0px 0px 10px 0px #6ac6db;
+  border-radius: 5px;
+}
+.res-introduce .row {
+  color: #333333;
+}
+.res-introduce .row:first-child {
+  padding: 0;
+}
+.res-introduce .row:first-child .avatar-box .my-avatar {
+  display: block;
+  margin: 0 auto;
+  height: 160px;
+}
+.res-introduce .my-info .row {
+  height: 32px;
+  line-height: 32px;
+  margin: 2px 0;
+}
+/* 技能区域 & 自我评价 */
+.res-skill {
+  margin-top: 10px;
+  padding: 5px 0;
+  border: 1px solid #6ac6db;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 10px 0px #6ac6db;
+}
+.res-skill .row:first-child {
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+}
+.res-skill .row:first-child .glyphicon-tag {
+  padding-left: 5px;
+  color: #6bc4d9;
+}
+.res-skill .row {
+  padding: 5px;
+}
+.res-skill .row .glyphicon-hand-right {
+  margin-left: 10px;
+  color: #6bc4d9;
+}
+.res-skill .row .items {
+  color: #333333;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding-left: 5px;
+}
+.res-skill .row .values {
+  padding: 5px 0;
+  color: #222222;
+}
+/* 工作经历 项目经验 */
+.res-company {
+  margin-top: 10px;
+  padding: 5px 0;
+  border: 1px solid #6ac6db;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 10px 0px #6ac6db;
+}
+.res-company .sub-title {
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+}
+.res-company .sub-title .glyphicon-tag {
+  padding-left: 5px;
+  color: #6bc4d9;
+}
+.res-company .row {
+  padding: 3px 5px;
+}
+.res-company .row .glyphicon-time,
+.res-company .row .glyphicon-lock,
+.res-company .row .glyphicon-saved {
+  margin-left: 10px;
+  color: #6bc4d9;
+}
+.res-company .row .items {
+  color: #333333;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.res-company .row .values {
+  padding: 2px 0px 2px 15px;
+  color: #222222;
+}
+.footer {
+  margin-bottom: 20px;
+}
