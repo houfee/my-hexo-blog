@@ -1,0 +1,28 @@
+on: push
+name: Deploy
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clean
+      uses: heowc/action-hexo@master
+      with:
+        args: clean
+    - name: Generate
+      uses: heowc/action-hexo@master
+      with:
+        args: generate
+    - name: Deploy
+      uses: heowc/action-hexo@master
+      env:
+        EMAIL: ""
+        NAME: ""
+        SSH_PRIVATE_KEY: ${{ secrets.TENGXUNYUN }}
+        ARGS: "-rltgoDzvO --delete"
+        SOURCE: "public/"
+        REMOTE_HOST: "49.235.41.140"
+        REMOTE_USER: "root"
+        TARGET: "/www/blog/"
+      with:
+        args: deploy
