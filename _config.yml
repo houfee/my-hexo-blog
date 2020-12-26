@@ -85,7 +85,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 # deploy:
 #   type: git
-#   repository: git@github.com:houfee/my_theme.git
+#   repository: git@github.com:houfeii/my_theme.git
 #   branch: master
 
 search:

@@ -100,7 +100,7 @@ creative_commons:
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
   enable: false
-  permalink: https://github.com/houfee
+  permalink: https://github.com/houfeii
   title: Follow me on GitHub
 
 
@@ -158,13 +158,13 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  about: https://github.com/houfee || github
+  about: https://github.com/houfeii || github
   user: /hireme || user
   tags: /tags || tags
   categories: /categories || th-list
   archives: /archives || archive
-  # outdent: https://houfee.github.io || outdent
-  note: https://www.cnblogs.com/houfee/ || sticky-note-o
+  # outdent: https://houfeii.github.io || outdent
+  note: https://www.cnblogs.com/houfeii/ || sticky-note-o
   # schedule: /schedule/ || calendar
   # sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
@@ -201,9 +201,9 @@ site_state: true
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 # social:
   # Search: https://cn.bing.com || search
-  # GitHub: https://github.com/houfee || github
+  # GitHub: https://github.com/houfeii || github
   # E-Mail: mailto:houfei1995@gmail.com || envelope
-  # Cnblogs: https://www.cnblogs.com/houfee/tag/ || connectdevelop
+  # Cnblogs: https://www.cnblogs.com/houfeii/tag/ || connectdevelop
   # Twitter: https://twitter.com/yourname || twitter
   # FB Page: https://www.facebook.com/yourname || facebook
   # VK Group: https://vk.com/yourname || vk
